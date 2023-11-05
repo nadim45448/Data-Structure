@@ -317,9 +317,13 @@ Node *reverseListRecursively(Node *&head)
 }
 int findMid(Node *&head)
 {
+    if(head==NULL)
+    {
+        return -1;
+    }
     Node *slow=head;
     Node *fast=head;
-    while (fast->next!=NULL)
+    while (fast!=NULL &&fast->next!=NULL)
     {
         fast=fast->next->next;
         slow=slow->next;
@@ -444,8 +448,16 @@ int main()
         case 12:
             int mid;
             mid=findMid(head);
-            cout<<"Mid value is:"<<mid<<endl;
-            break;
+            if(mid==-1)
+            {
+                cout<<"There is no value in the linked list"<<endl;
+            }
+            else
+            {
+                 cout<<"Mid value is:"<<mid<<endl;
+                 break;
+            }
+           
 
         default:
             cout << "Invalid choice" << endl;
