@@ -48,6 +48,55 @@ void insertionAtHead(Node *&head, int val)
     temp->next = newNode;
     head = newNode;
 }
+void deletionAtHead(Node *&head)
+{
+    Node *temp = head;
+    if (temp != NULL)
+    {
+        Node *delNode=temp;
+        while(temp->next!=head)
+        {
+            temp=temp->next;
+        }
+        temp->next=delNode->next;
+        head=delNode->next;
+        delete delNode;
+        
+    }
+    else
+    {
+        cout << "There is no value in the Linked List" << endl;
+    }
+}
+void deletionAtTail(Node *&head)
+{
+    Node *temp = head;
+    // step 1
+    if (temp != NULL && temp->next != head)
+    {
+        while (temp->next->next != head)
+        {
+            temp = temp->next;
+        }
+        // step 2
+        Node *delNode = temp->next;
+        // step 3
+        temp->next = delNode->next;
+        // step 4
+        delete delNode;
+    }
+    else
+    {
+        if (temp == NULL) // head is null
+        {
+            cout << "There is no value in the linked list" << endl;
+        }
+        else
+        { // head is tail
+            deletionAtHead(head);
+        }
+    }
+}
 void dsiplay(Node *&head)
 {
    if(head==NULL)
@@ -83,9 +132,17 @@ void dsiplay(Node *&head)
     }
     cout<<temp->value;*/
 }
-int count(Node *&n)
+int length(Node *&head)
 {
-
+    Node *temp=head;
+    int count=0;
+    
+    do{
+       
+        count++;
+        temp=temp->next;
+    }while(temp!=head);
+    return  count;
 }
 int main()
 {
@@ -118,6 +175,12 @@ int main()
             cin >> value;
             insertionAtTail(head, value);
             break;
+        case 4:
+            deletionAtHead(head);
+            break;
+        case 5:
+            deletionAtTail(head);
+            break;
 
         default:
             cout << "Invalid choice" << endl;
@@ -130,4 +193,5 @@ int main()
     cout << "Linked list: ";
         dsiplay(head);
         cout << endl;
+        cout << "Length of the Linked list: " << length(head);
 }
