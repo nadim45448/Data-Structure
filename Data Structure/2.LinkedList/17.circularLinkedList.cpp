@@ -57,7 +57,22 @@ void dsiplay(Node *&head)
    }
    
     Node *temp = head;
-    while (temp->next != head)
+
+    //approach 1
+    do
+    {
+        cout<<temp->value;
+        temp=temp->next;
+        if(temp!=head)
+        {
+            cout<<"-->";
+        }
+        
+    } while (temp!=head);
+    cout<<endl;
+    
+     //approach 2
+    /*while (temp->next != head)
     {
         cout << temp->value;
         if (temp->next != head)
@@ -66,7 +81,11 @@ void dsiplay(Node *&head)
         }
         temp = temp->next;
     }
-    cout<<temp->value;
+    cout<<temp->value;*/
+}
+int count(Node *&n)
+{
+
 }
 int main()
 {
