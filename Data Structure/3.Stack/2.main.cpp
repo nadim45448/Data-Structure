@@ -15,10 +15,6 @@ int main()
 
     st.pop();
      st.pop();
-     cout<<st.topElement()<<endl;
-     
-
-
 
     return 0;
     
