@@ -73,7 +73,7 @@ public:
         }
         else // there is more than one value in the stack
         {
-            delNode->prev = top;
+            top=delNode->prev;
             top->next = NULL;
             cout<<"top pop"<<endl;
         }
@@ -83,7 +83,7 @@ public:
         return popValue;
     }
 
-   /*
+   
   // EMPTY
     bool empty()
     {
@@ -115,5 +115,5 @@ public:
     {
         return count;
     }
-    */
+    
 };

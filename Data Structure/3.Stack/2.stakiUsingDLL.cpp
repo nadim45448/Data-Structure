@@ -19,13 +19,13 @@ class Stack
     Node *top;
 
 public:
-    int count = 0;
+    
     Stack()
     {
         head = NULL;
         top = NULL;
     }
-
+int count = 0;
     // PUSH
     void push(int val)
     {
@@ -57,6 +57,7 @@ public:
         if (head == NULL && top == NULL)
         {
             cout << "There is no value in the stack. Nothing to pop" << endl;
+            return; 
           
         }
         // there is one element in the stack
@@ -67,9 +68,8 @@ public:
         }
         else
         {
-            delNode->prev = top;
-            // top->prev=top;
-
+          
+            top=delNode->prev;
             top->next = NULL;
         }
 
@@ -80,25 +80,25 @@ public:
     }
 
     // // Empty
-    // bool empty()
-    // {
-    //     if (head == NULL)
-    //     {
-    //         return true;
-    //     }
-    //     else
-    //         return false;
-    // }
-    // int topValue()
-    // {
-    //     if (head == NULL)
-    //     {
-    //         cout << "nothing on top" << endl;
-    //         return -999;
-    //     }
-    //     else
-    //         return top->value;
-    // }
+    bool empty()
+    {
+        if (head == NULL)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+    int topValue()
+    {
+        if (head == NULL)
+        {
+            cout << "nothing on top" << endl;
+            return -999;
+        }
+        else
+            return top->value;
+    }
 
     int size()
     {
@@ -121,16 +121,19 @@ int main()
     Stack st;
 
 
-    st.push(1);
-    st.push(2);
-    st.push(3);
-   
-     cout<<"length:"<<st.size()<<endl;
-    st.push(4);
-    st.push(5);
+    st.push(10);
+    st.push(20);
+    st.push(30);
+    cout<<st.topValue()<<endl;
     st.pop();
-   st.show();
-    cout<<"length:"<<st.size()<<endl;
+    st.pop();
+    cout<<st.topValue()<<endl;
+//      cout<<"length:"<<st.size()<<endl;
+//     st.push(4);
+//     st.push(5);
+//     st.pop();
+//    st.show();
+//     cout<<"length:"<<st.size()<<endl;
 
 
   
