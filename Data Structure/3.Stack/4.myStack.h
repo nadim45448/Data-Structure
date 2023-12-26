@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-template<typename T>
+template <typename T>
 class Node
 {
 public:
@@ -14,7 +14,7 @@ public:
         next = NULL;
     }
 };
-template<typename ST>
+template <typename ST>
 class Stack
 {
 public:
@@ -28,17 +28,17 @@ public:
 
     void push(ST val)
     {
-        Node<ST> *newNode =new Node<ST>(val);
-        if(head==NULL)
+        Node<ST> *newNode = new Node<ST>(val);
+        if (head == NULL)
         {
-            head=top=newNode;
+            head = top = newNode;
             return;
         }
         else
         {
-            top->next=newNode;
-            newNode->prev=top;
-            top=newNode;
+            top->next = newNode;
+            newNode->prev = top;
+            top = newNode;
         }
     }
 
@@ -47,30 +47,28 @@ public:
         Node<ST> *delNode;
         delNode = top;
         ST popElement;
-        if(head==NULL)
+        if (head == NULL)
         {
-            cout<<"Stack underflow"<<endl;
+            cout << "Stack underflow" << endl;
             return popElement;
         }
-        if(head==top)
+        if (head == top)
         {
-            head=top=NULL;
-            
+            head = top = NULL;
         }
         else
         {
-            top=delNode->prev;
-            top->next=NULL;
+            top = delNode->prev;
+            top->next = NULL;
         }
-        popElement=delNode->value;
+        popElement = delNode->value;
         delete delNode;
         return popElement;
-       
     }
     ST topElement()
     {
         ST t;
-        if(head==NULL)
+        if (head == NULL)
         {
             cout << "nothing on top" << endl;
             return t;
@@ -91,5 +89,22 @@ public:
         {
             return false;
         }
+    }
+
+    ST mid()
+    {
+        ST error;
+        if (head == NULL)
+        {
+            return error;
+        }
+        Node<ST> *slow = head;
+        Node<ST> *fast = head;
+        while (fast != NULL && fast->next != NULL)
+        {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        return slow->value;
     }
 };

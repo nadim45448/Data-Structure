@@ -51,22 +51,29 @@ public:
 
 int main()
 {
-    Stack<person>st;
+    /*Stack<person>st;
     person a("Nadim Hossain", 1500.5);
     person b("Hasib Hasan", 200.6);
     person c("Victor Stany",1800.75);
     st.push(a);
     st.push(b);
-    st.push(c);
+    st.push(c);*/
     // while (!st.empty())
     // {
     //     person printObj;
     //     printObj=st.pop();
     //     printObj.print();
     // }
-    person printObj;
+    /*person printObj;
          printObj=st.topElement();
-         printObj.print();
+         printObj.print();*/
+         Stack<int>st;
+         st.push(1);
+         st.push(2);
+         st.push(3);
+         st.push(4);
+         st.push(5);
+         cout<<st.mid()<<endl;
    
     
   
