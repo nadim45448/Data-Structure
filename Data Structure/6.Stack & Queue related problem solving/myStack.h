@@ -49,7 +49,7 @@ public:
         ST popElement;
         if (head == NULL)
         {
-            cout << "Stack underflow" << endl;
+            //cout << "Stack underflow" << endl;
             return popElement;
         }
         if (head == top)
@@ -70,7 +70,7 @@ public:
         ST t;
         if (head == NULL)
         {
-            cout << "nothing on top" << endl;
+           // cout << "nothing on top" << endl;
             return t;
         }
         else
