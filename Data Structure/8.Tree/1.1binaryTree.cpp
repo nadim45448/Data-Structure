@@ -34,13 +34,13 @@ void printTree(treeNode *root, int level)
     }
     if (root->leftChild != NULL)
     {
-        spaceprint(level + 1);
+        spaceprint(level);
         cout << "Left:";
         printTree(root->leftChild, level + 1);
     }
     if (root->rightChild != NULL)
     {
-        spaceprint(level + 1);
+        spaceprint(level);
         cout << "Right:";
         printTree(root->rightChild, level + 1);
     }
@@ -81,5 +81,8 @@ int main()
         }
     }
     printTree(allnode[0],0);
+    
+
+    
     return 0;
 }
