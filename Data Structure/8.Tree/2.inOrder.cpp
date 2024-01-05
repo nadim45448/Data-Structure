@@ -16,6 +16,8 @@ public:
 void printTree(treeNode *root, int val);
 void spaceprint(int level);
 void inOrder(treeNode *root, string &chk);
+void preOrder(treeNode *root, string &chk);
+void postOrder(treeNode *root, string &chk);
 
 void printTree(treeNode *root, int level)
 {
@@ -25,7 +27,7 @@ void printTree(treeNode *root, int level)
     }
     if (root->leftChild == NULL && root->rightChild == NULL)
     {
-        cout << root->data<<endl;
+        cout << root->data << endl;
         return;
     }
     else
@@ -57,14 +59,33 @@ void spaceprint(int level)
 }
 void inOrder(treeNode *root, string &chk)
 {
-    if(root==NULL)
+    if (root == NULL)
     {
         return;
     }
-    inOrder(root->leftChild,chk);
-    chk+=to_string(root->data);
-    inOrder(root->rightChild,chk);
-
+    inOrder(root->leftChild, chk);
+    chk += to_string(root->data);
+    inOrder(root->rightChild, chk);
+}
+void preOrder(treeNode *root, string &chk)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    chk += to_string(root->data);
+    preOrder(root->leftChild, chk);
+    preOrder(root->rightChild, chk);
+}
+void postOrder(treeNode *root, string &chk)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    postOrder(root->leftChild, chk);
+    postOrder(root->rightChild, chk);
+    chk += to_string(root->data);
 }
 int main()
 {
@@ -94,8 +115,17 @@ int main()
             allnode[i]->rightChild = allnode[right];
         }
     }
-    printTree(allnode[0],0);
-    string inOrdertraversal="";
-    inOrder(allnode[0],inOrdertraversal);
-    cout<<"In order traversal:"<<inOrdertraversal<<endl;
+    printTree(allnode[0], 0);
+    string inOrdertraversal = "";
+    string preOrdertraversal = "";
+    string postOrdertraversal = "";
+
+    inOrder(allnode[0], inOrdertraversal);
+    cout << "In order traversal:" << inOrdertraversal << endl;
+
+    preOrder(allnode[0], preOrdertraversal);
+    cout << "Pre order traversal:" << preOrdertraversal << endl;
+
+    postOrder(allnode[0], postOrdertraversal);
+    cout << "Post order traversal:" << postOrdertraversal << endl;
 }
