@@ -15,9 +15,6 @@ public:
 };
 void printTree(treeNode *root, int val);
 void spaceprint(int level);
-void inOrder(treeNode *root, string &chk);
-void preOrder(treeNode *root, string &chk);
-void postOrder(treeNode *root, string &chk);
 void levelOrder(treeNode *root, string &chk);
 
 void printTree(treeNode *root, int level)
@@ -58,36 +55,7 @@ void spaceprint(int level)
         cout << "   ";
     }
 }
-void inOrder(treeNode *root, string &chk)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    inOrder(root->leftChild, chk);
-    chk += to_string(root->data);
-    inOrder(root->rightChild, chk);
-}
-void preOrder(treeNode *root, string &chk)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    chk += to_string(root->data);
-    preOrder(root->leftChild, chk);
-    preOrder(root->rightChild, chk);
-}
-void postOrder(treeNode *root, string &chk)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    postOrder(root->leftChild, chk);
-    postOrder(root->rightChild, chk);
-    chk += to_string(root->data);
-}
+
 void levelOrder(treeNode *root, string &chk)
 {
     if(root==NULL)
@@ -155,19 +123,7 @@ int main()
             allnode[i]->rightChild = allnode[right];
         }
     }
-   // printTree(allnode[0], 0);
-   /* string inOrdertraversal = "";
-    string preOrdertraversal = "";
-    string postOrdertraversal = ""; */
+  
     string levelOrderTraversal="";
-
-   /* inOrder(allnode[0], inOrdertraversal);
-    cout << "In order traversal:" << inOrdertraversal << endl;
-
-    preOrder(allnode[0], preOrdertraversal);
-    cout << "Pre order traversal:" << preOrdertraversal << endl;
-
-    postOrder(allnode[0], postOrdertraversal);
-    cout << "Post order traversal:" << postOrdertraversal << endl; */
     levelOrder(allnode[0],levelOrderTraversal);
 }
