@@ -103,7 +103,7 @@ void levelOrder(treeNode *root, string &chk)
         q.pop();
         if(chkNode!=NULL)
         {
-            //cout<<chkNode->data<<" ";
+            cout<<chkNode->data<<" ";
             chk+=to_string(chkNode->data);
             if(chkNode->leftChild!=NULL)
             {
