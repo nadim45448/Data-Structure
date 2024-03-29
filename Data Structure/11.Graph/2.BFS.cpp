@@ -27,11 +27,37 @@ class Graph
             
         }
     }
+    void BFS(int source)
+    {
+        vector<bool>visited(V,false);
+        queue<int>q;
+        visited[source]=true;
+        //cout<<source<<" ";
+        q.push(source);
+
+        while (!q.empty())
+        {
+            int u=q.front();
+            cout<<u<<" ";
+            q.pop();
+            for(auto element:adj[u] )
+            {
+                int v=element.first; 
+                if(visited[v]!=true)
+                {
+                    visited[v]=true;
+                    
+                    q.push(v);
+                }
+            }
+        }
+        
+    }
 };
 int main()
 {
-    int V,E;
-    cin>>V>>E;
+    int V,E,source;
+    cin>>V>>E>>source;
     Graph g(V);
     for(int i=0;i<E;i++)
     {
@@ -45,10 +71,12 @@ int main()
         g.printNeighbour(i);
         cout<<endl;
     }
+    cout<<endl<<endl;
+    g.BFS(source);
     return 0;
 }
 /*
-7 10
+7 10 0
 0 1 7
 0 2 1
 0 5 3
